@@ -2,8 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Signup from '@/components/user/Signup'
-import Admin from '@/components/Admin/Admin'
-import createaccount from '@/components/Admin/createaccount'
+import Signin from '@/components/user/Signin'
 
 Vue.use(Router)
 
@@ -20,14 +19,10 @@ export default new Router({
       component: Signup
     },
     {
-      path: '/admin',
-      name: 'Admin',
-      component: Admin
-    },
-    {
-      path: '/createaccount',
-      name: 'createaccount',
-      component: createaccount
-    },
-  ]
+      path: '/signin',
+      name: 'Signin',
+      component: Signin
+    }
+  ],
+  mode: 'history'
 })

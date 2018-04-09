@@ -27,9 +27,9 @@
     data () {
       return {
         menuItems: [
+          {icon: 'face', title: 'Sign in', link: '/signin'},
           {icon: 'lock_open', title: 'Sign up', link: '/signup'},
-          {icon: 'face', title: 'Sign in as Admin', link: '/admin'},
-          {icon: 'lock_open', title: 'Create Account', link: '/createaccount'}
+          {icon: 'clear', title: 'Log out', link: '/logout'}
         ]
       }
     }

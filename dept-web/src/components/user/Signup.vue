@@ -5,7 +5,7 @@
         <v-card>
           <v-card-text>
             <v-container>
-              <form>
+              <form method="POST" v-bind:action="siteName + '/users/signup'">
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
@@ -53,6 +53,17 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
+                      name="username"
+                      label="Username"
+                      id="username"
+                      v-model="username"
+                      type="username"
+                      required></v-text-field>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-text-field
                       name="password"
                       label="Password"
                       id="password"
@@ -69,7 +80,7 @@
                       id="confirmPassword"
                       v-model="confirmPassword"
                       type="password"
-                      ></v-text-field>
+                      required></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -94,8 +105,10 @@
         email: '',
         usn: '',
         section: '',
+        username: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        siteName: 'http://433d1107.ngrok.io'
       }
     }
   }
