@@ -9,11 +9,11 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
-                      name="email"
-                      label="Mail"
-                      id="email"
-                      v-model="email"
-                      type="email"
+                      name="username"
+                      label="Username"
+                      id="username"
+                      v-model="username"
+                      type="username"
                       required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -30,7 +30,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn type="submit"><a href="/adminLogin"</v-btn>
+                    <v-btn type="button" v-on:click="signin">Sign in</v-btn>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -47,13 +47,34 @@
   </v-container>
 </template>
 
+
 <script>
-  export default {
-    data () {
-      return {
-        email: '',
-        password: ''
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      username: '',
+      password: '',
+      token: '',
+      siteName: 'http://5cc49675.ngrok.io'
+    }
+  },
+  methods: {
+    signin: function () {
+      var data = {
+        username: this.username,
+        password: this.password
       }
+      axios.post(this.siteName + '/user/signin', data)
+      .then((res) => {
+        console.log(res)
+        this.token = res.data.token
+        console.log(this.token)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   }
+}
 </script>
